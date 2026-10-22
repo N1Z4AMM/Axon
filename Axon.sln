@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{126B3D2B-FA56-4EBD-A71E-BF64CD3FD9A0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Axon", "src\Axon\Axon.csproj", "{95C8EAAE-116E-42FD-9902-D32E5DFEA3B6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{95C8EAAE-116E-42FD-9902-D32E5DFEA3B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95C8EAAE-116E-42FD-9902-D32E5DFEA3B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95C8EAAE-116E-42FD-9902-D32E5DFEA3B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95C8EAAE-116E-42FD-9902-D32E5DFEA3B6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{95C8EAAE-116E-42FD-9902-D32E5DFEA3B6} = {126B3D2B-FA56-4EBD-A71E-BF64CD3FD9A0}
+	EndGlobalSection
+EndGlobal

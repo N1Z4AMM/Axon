@@ -1,0 +1,20 @@
+## Build & Output
+bin/
+obj/
+*.user
+*.suo
+.vs/
+.vscode/
+.idea/
+
+## OS Files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.DS_Store
+
+## SQLite local databases
+*.db
+*.sqlite
+*.sqlite3

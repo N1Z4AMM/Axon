@@ -1,0 +1,71 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- GEOMETRI VEKTOR NATIVE XAML (Ringan, tajam di semua DPI, tanpa font luar) -->
+
+    <!-- Icon AXON Logo (Gelombang Audio Bersih) -->
+    <Geometry x:Key="IconAxonLogo">
+        M 2 12 L 5 12 L 8 4 L 11 20 L 14 8 L 17 16 L 19 12 L 22 12
+    </Geometry>
+
+    <!-- Icon Library / Musik -->
+    <Geometry x:Key="IconLibrary">
+        M 9 18 V 5 L 21 3 V 16 M 9 18 A 3 3 0 1 1 6 15 A 3 3 0 0 1 9 18 M 21 16 A 3 3 0 1 1 18 13 A 3 3 0 0 1 21 16
+    </Geometry>
+
+    <!-- Icon Settings (Roda Gigi Presisi) -->
+    <Geometry x:Key="IconSettings">
+        M 12 15 A 3 3 0 1 0 12 9 A 3 3 0 0 0 12 15 M 19.4 15 A 1.65 1.65 0 0 0 19.73 16.82 L 19.82 16.91 A 2 2 0 0 1 17 19.73 L 16.91 19.64 A 1.65 1.65 0 0 0 15.09 19.31 A 1.65 1.65 0 0 0 14.18 20.82 V 21 A 2 2 0 0 1 10.18 21 V 20.82 A 1.65 1.65 0 0 0 9.27 19.31 A 1.65 1.65 0 0 0 7.45 19.64 L 7.36 19.73 A 2 2 0 0 1 4.54 16.91 L 4.63 16.82 A 1.65 1.65 0 0 0 4.96 15 A 1.65 1.65 0 0 0 3.45 14.09 H 3.27 A 2 2 0 0 1 3.27 10.09 H 3.45 A 1.65 1.65 0 0 0 4.96 9.18 A 1.65 1.65 0 0 0 4.63 7.36 L 4.54 7.27 A 2 2 0 0 1 7.36 4.45 L 7.45 4.54 A 1.65 1.65 0 0 0 9.27 4.87 A 1.65 1.65 0 0 0 10.18 3.36 V 3.18 A 2 2 0 0 1 14.18 3.18 V 3.36 A 1.65 1.65 0 0 0 15.09 4.87 A 1.65 1.65 0 0 0 16.91 4.54 L 17 4.45 A 2 2 0 0 1 19.82 7.27 L 19.73 7.36 A 1.65 1.65 0 0 0 19.4 9.18 A 1.65 1.65 0 0 0 20.91 10.09 H 21.09 A 2 2 0 0 1 21.09 14.09 H 20.91 A 1.65 1.65 0 0 0 19.4 15
+    </Geometry>
+
+    <!-- Icon Play -->
+    <Geometry x:Key="IconPlay">
+        M 6 4 L 20 12 L 6 20 Z
+    </Geometry>
+
+    <!-- Icon Pause -->
+    <Geometry x:Key="IconPause">
+        M 6 4 H 10 V 20 H 6 Z M 14 4 H 18 V 20 H 14 Z
+    </Geometry>
+
+    <!-- Icon Previous Track -->
+    <Geometry x:Key="IconPrevious">
+        M 6 5 V 19 M 18 5 L 8 12 L 18 19 Z
+    </Geometry>
+
+    <!-- Icon Next Track -->
+    <Geometry x:Key="IconNext">
+        M 18 5 V 19 M 6 5 L 16 12 L 6 19 Z
+    </Geometry>
+
+    <!-- Icon Volume Normal -->
+    <Geometry x:Key="IconVolume">
+        M 11 5 L 6 9 H 2 V 15 H 6 L 11 19 V 5 Z M 15.54 8.46 A 5 5 0 0 1 15.54 15.54 M 19.07 4.93 A 10 10 0 0 1 19.07 19.07
+    </Geometry>
+
+    <!-- Icon Volume Mute -->
+    <Geometry x:Key="IconVolumeMuted">
+        M 11 5 L 6 9 H 2 V 15 H 6 L 11 19 V 5 Z M 23 9 L 17 15 M 17 9 L 23 15
+    </Geometry>
+
+    <!-- Icon Folder Open -->
+    <Geometry x:Key="IconFolder">
+        M 22 19 A 2 2 0 0 1 20 21 H 4 A 2 2 0 0 1 2 19 V 5 A 2 2 0 0 1 4 3 H 9 L 11 6 H 20 A 2 2 0 0 1 22 8 Z
+    </Geometry>
+
+    <!-- Icon Search -->
+    <Geometry x:Key="IconSearch">
+        M 11 19 A 8 8 0 1 0 11 3 A 8 8 0 0 0 11 19 Z M 21 21 L 16.65 16.65
+    </Geometry>
+
+    <!-- Icon Mini-Player Window Overlay -->
+    <Geometry x:Key="IconMiniPlayer">
+        M 3 3 H 21 V 21 H 3 Z M 12 10 H 21 V 19 H 12 Z
+    </Geometry>
+
+    <!-- Icon Vinyl Record Placeholder -->
+    <Geometry x:Key="IconVinyl">
+        M 12 2 A 10 10 0 1 0 22 12 A 10 10 0 0 0 12 2 M 12 8 A 4 4 0 1 0 16 12 A 4 4 0 0 0 12 8 M 12 11 A 1 1 0 1 0 13 12 A 1 1 0 0 0 12 11
+    </Geometry>
+
+</ResourceDictionary>

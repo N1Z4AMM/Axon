@@ -1,0 +1,221 @@
+<Window x:Class="Axon.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="clr-namespace:Axon.ViewModels"
+        xmlns:views="clr-namespace:Axon.Views"
+        mc:Ignorable="d"
+        Title="AXON — Music Player"
+        Width="1200"
+        Height="720"
+        MinWidth="1024"
+        MinHeight="640"
+        WindowStartupLocation="CenterScreen"
+        Background="{StaticResource AppBackgroundDarkBrush}"
+        Foreground="{StaticResource TextPrimaryBrush}">
+
+    <!-- PENGATURAN DATA CONTEXT MVVM -->
+    <Window.DataContext>
+        <vm:MainViewModel />
+    </Window.DataContext>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <!-- Area Kerja Utama (Sidebar + Halaman Aktif) -->
+            <RowDefinition Height="*" />
+            <!-- Bar Pemutar Musik di Bawah (Bottom Playback Bar) -->
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!-- ============================================================== -->
+        <!-- AREA KERJA UTAMA                                               -->
+        <!-- ============================================================== -->
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <!-- Kolom 0: Sidebar Navigasi Tetap -->
+                <ColumnDefinition Width="220" />
+                <!-- Kolom 1: Area Konten Dinamis (Library / Settings) -->
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <!-- ============================================== -->
+            <!-- SIDEBAR NAVIGASI (Charcoal Titanium Theme)     -->
+            <!-- ============================================== -->
+            <Border Grid.Column="0"
+                    Background="{StaticResource SurfaceDarkBrush}"
+                    BorderBrush="{StaticResource BorderSubtleBrush}"
+                    BorderThickness="0,0,1,0"
+                    Padding="16,20,16,16">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <!-- Header Branding AXON -->
+                        <RowDefinition Height="Auto" />
+                        <!-- Daftar Menu Navigasi -->
+                        <RowDefinition Height="*" />
+                        <!-- Footer / Status Badge -->
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <!-- BRANDING AXON DENGAN GELOMBANG AUDIO -->
+                    <StackPanel Grid.Row="0" Margin="4,0,0,24">
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                            <!-- Logo Waveform -->
+                            <Border Width="30"
+                                    Height="30"
+                                    CornerRadius="6"
+                                    Background="{StaticResource SurfaceMediumBrush}"
+                                    BorderBrush="{StaticResource BorderSubtleBrush}"
+                                    BorderThickness="1"
+                                    Margin="0,0,10,0">
+                                <Path Data="{StaticResource IconAxonLogo}"
+                                      Stroke="{DynamicResource AccentBrush}"
+                                      StrokeThickness="2"
+                                      StrokeStartLineCap="Round"
+                                      StrokeEndLineCap="Round"
+                                      StrokeLineJoin="Round"
+                                      Width="18"
+                                      Height="18"
+                                      Stretch="Uniform"
+                                      HorizontalAlignment="Center"
+                                      VerticalAlignment="Center" />
+                            </Border>
+
+                            <StackPanel VerticalAlignment="Center">
+                                <TextBlock Text="AXON"
+                                           FontSize="16"
+                                           FontWeight="Bold"
+                                           Foreground="{StaticResource TextPrimaryBrush}" />
+                                <TextBlock Text="MUSIC PLAYER"
+                                           FontSize="9"
+                                           FontWeight="SemiBold"
+                                           Foreground="{StaticResource TextMutedBrush}"
+                                           Margin="0,1,0,0" />
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <!-- DAFTAR ITEM NAVIGASI -->
+                    <StackPanel Grid.Row="1">
+                        <!-- Label Kategori: BROWSE -->
+                        <TextBlock Text="BROWSE"
+                                   Style="{StaticResource TextCaption}"
+                                   FontWeight="SemiBold"
+                                   Margin="8,0,0,8" />
+
+                        <!-- Menu: Library (Aktif) -->
+                        <RadioButton Style="{StaticResource NavTabStyle}"
+                                     GroupName="SidebarNav"
+                                     IsChecked="{Binding IsLibraryActive, Mode=OneWay}"
+                                     Command="{Binding NavigateToLibraryCommand}">
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                <Path Data="{StaticResource IconLibrary}"
+                                      Fill="{Binding Foreground, RelativeSource={RelativeSource AncestorType=RadioButton}}"
+                                      Width="16"
+                                      Height="16"
+                                      Stretch="Uniform"
+                                      Margin="0,0,10,0" />
+                                <TextBlock Text="Library" FontSize="13" VerticalAlignment="Center" />
+                            </StackPanel>
+                        </RadioButton>
+
+                        <!-- Menu: Playlists (Placeholder Fase 4) -->
+                        <RadioButton Style="{StaticResource NavTabStyle}"
+                                     GroupName="SidebarNav"
+                                     IsEnabled="False"
+                                     ToolTip="Playlists management will be available in Phase 4">
+                            <Grid VerticalAlignment="Center">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <StackPanel Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center">
+                                    <Path Data="{StaticResource IconVinyl}"
+                                          Fill="{Binding Foreground, RelativeSource={RelativeSource AncestorType=RadioButton}}"
+                                          Width="16"
+                                          Height="16"
+                                          Stretch="Uniform"
+                                          Margin="0,0,10,0" />
+                                    <TextBlock Text="Playlists" FontSize="13" VerticalAlignment="Center" />
+                                </StackPanel>
+                                <Border Grid.Column="1"
+                                        Background="{StaticResource SurfaceLightBrush}"
+                                        CornerRadius="3"
+                                        Padding="5,1"
+                                        Margin="4,0,0,0">
+                                    <TextBlock Text="P4" FontSize="9" FontWeight="SemiBold" Foreground="{StaticResource TextMutedBrush}" />
+                                </Border>
+                            </Grid>
+                        </RadioButton>
+
+                        <!-- Pemisah Seksi -->
+                        <Border Height="1"
+                                Background="{StaticResource BorderSubtleBrush}"
+                                Margin="8,16,8,16" />
+
+                        <!-- Label Kategori: GENERAL -->
+                        <TextBlock Text="GENERAL"
+                                   Style="{StaticResource TextCaption}"
+                                   FontWeight="SemiBold"
+                                   Margin="8,0,0,8" />
+
+                        <!-- Menu: Settings -->
+                        <RadioButton Style="{StaticResource NavTabStyle}"
+                                     GroupName="SidebarNav"
+                                     IsChecked="{Binding IsSettingsActive, Mode=OneWay}"
+                                     Command="{Binding NavigateToSettingsCommand}">
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                <Path Data="{StaticResource IconSettings}"
+                                      Fill="{Binding Foreground, RelativeSource={RelativeSource AncestorType=RadioButton}}"
+                                      Width="16"
+                                      Height="16"
+                                      Stretch="Uniform"
+                                      Margin="0,0,10,0" />
+                                <TextBlock Text="Settings" FontSize="13" VerticalAlignment="Center" />
+                            </StackPanel>
+                        </RadioButton>
+                    </StackPanel>
+
+                    <!-- FOOTER SIDEBAR / STATUS INFORMASI FASE 1 -->
+                    <Border Grid.Row="2"
+                            Background="{StaticResource SurfaceMediumBrush}"
+                            BorderBrush="{StaticResource BorderSubtleBrush}"
+                            BorderThickness="1"
+                            CornerRadius="6"
+                            Padding="10,8">
+                        <StackPanel>
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                <Border Width="6"
+                                        Height="6"
+                                        CornerRadius="3"
+                                        Background="{DynamicResource AccentBrush}"
+                                        Margin="0,0,6,0" />
+                                <TextBlock Text="Phase 1 Ready"
+                                           FontSize="11"
+                                           FontWeight="SemiBold"
+                                           Foreground="{StaticResource TextPrimaryBrush}" />
+                            </StackPanel>
+                            <TextBlock Text="Foundation &amp; Shell"
+                                       Style="{StaticResource TextCaption}"
+                                       Margin="12,2,0,0" />
+                        </StackPanel>
+                    </Border>
+                </Grid>
+            </Border>
+
+            <!-- ============================================== -->
+            <!-- KONTEN DINAMIS (LIBRARY VIEW / SETTINGS VIEW)  -->
+            <!-- WPF ContentControl merender View via DataTemplate -->
+            <!-- ============================================== -->
+            <ContentControl Grid.Column="1"
+                            Content="{Binding CurrentViewModel}"
+                            Focusable="False" />
+        </Grid>
+
+        <!-- ============================================================== -->
+        <!-- BAR PEMUTAR MUSIK DI BAWAH (BOTTOM PLAYBACK BAR)               -->
+        <!-- ============================================================== -->
+        <views:PlaybackBarView Grid.Row="1"
+                               DataContext="{Binding PlaybackBar}" />
+    </Grid>
+</Window>
